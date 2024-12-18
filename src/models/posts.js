@@ -1,5 +1,5 @@
-import { DataTypes } from "sequelize"
-import { instanceMethods, classMethods, hooks } from '../helpers/posts.js'
+import { DataTypes } from "sequelize";
+import { instanceMethods, classMethods, hooks } from "../helpers/posts.js";
 
 /**
  * Initialize Post definition
@@ -7,33 +7,31 @@ import { instanceMethods, classMethods, hooks } from '../helpers/posts.js'
  * @param sequelize Sequelize Instance
  * @returns {PostClass} Returns the Post model
  */
- const Post = function( sequelize ) {
-
+const Post = function (sequelize) {
   /** Create the schema */
   const model = sequelize.define(
-      'post',
-      {
-        id:{
-          type: DataTypes.INTEGER,
-          autoIncrement: true,
-          initialAutoIncrement: 1,
-          primaryKey: true
-        },
-        title: DataTypes.STRING,
-        content: DataTypes.STRING,
-        authorId: DataTypes.INTEGER,
-        createdAt: DataTypes.DATE,
-        updatedAt: DataTypes.DATE,
+    "post",
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        initialAutoIncrement: 1,
+        primaryKey: true,
       },
-      {
-          instanceMethods,
-          classMethods,
-          hooks,
-      }
+      title: DataTypes.STRING,
+      content: DataTypes.STRING,
+      authorId: DataTypes.INTEGER,
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE,
+    },
+    {
+      instanceMethods,
+      classMethods,
+      hooks,
+    }
   );
 
-  return model
-
+  return model;
 };
 
-export default Post
+export default Post;
